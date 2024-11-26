@@ -14,7 +14,7 @@ const AddCoffee = () => {
         const details= form.details.value
         const photo= form.photo.value
         const user={name,chef,supplier,taste,category,details,photo}
-        console.log(user)
+        // console.log(user)
 
 
         fetch('http://localhost:5000/coffee',{
@@ -26,16 +26,16 @@ const AddCoffee = () => {
         })
         .then(res=>res.json(user))
         .then(data=>{
-            console.log(data)
+            // console.log(data)
             if (data.insertedId) {
                 Swal.fire({
                     title: "Success!",
                     text: "Coffee added successfully",
                     icon: "success"
                   });
-                  event.reset()
-            }
-        })
+                  event.target.reset()
+                }
+              })
     }
   return (
     <div className="py-9 px-24">
